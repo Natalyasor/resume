@@ -1,0 +1,103 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+	<main>
+		<section>
+			<ul>
+				<h2>{{name}}</h2>
+				<b>{{birthdate}} - {{birthplace}}</b>
+				<b>{{deathdate}} - {{deathplace}}</b>
+				<br>
+				<strong>{{nationality}}</strong>
+				<br>
+				<strong>{{occupation}}</strong>
+				<hr>
+			</ul>
+			<br>
+			<h3>known_for</h3>
+			{{#each known_for}}
+			<li><strong>{{this}}</strong></li>
+			{{/each}}
+
+			<br>
+			<h3>Education</h3>
+			{{#each education}}
+			<strong>{{degree}} ({{field}})</strong>
+			<br>
+			<strong>{{institution}} ({{year}})</strong>
+			{{/each}}
+
+			<br>
+			<br>
+			<h3>Notable_publications</h3>
+			{{#each notable_publications}}
+			<li><strong>{{title}} ({{year}})</strong></li>
+			<strong>{{publisher}}</strong>
+			{{/each}}
+
+			<br>
+			<br>
+			<h3>partners</h3>
+			{{#each partners}}
+			<li><strong>{{name}}<p>{{relationship}}</p></strong></li>
+			<p>{{years}}</p>
+			{{/each}}
+
+
+			<br>
+			<h3>Awards</h3>
+			{{#each awards}}
+			<li><strong>{{title}} ({{year}})</strong></li>
+			<p>{{description}}</p>
+			{{/each}}
+
+			<br>
+			<h3>influences</h3>
+			{{#each influences}}
+			<li><strong>{{this}}</strong></li>
+			{{/each}}
+
+			<br>
+			<h3>influenced</h3>
+			{{#each influenced}}
+			<li><strong>{{this}}</strong></li>
+			{{/each}}
+			<br>
+			<h3>quotes</h3>
+			{{#each quotes}}
+			<li><strong>{{this}}</strong></li>
+			{{/each}}
+
+			<br>
+			<h3> major_discoveries</h3>
+			{{#each major_discoveries}}
+			<li>
+				<strong>{{title}}</strong>
+				<strong>({{year}})</strong>
+				<p>{{description}}</p>
+			</li>
+			{{/each}}
+			<br>
+			<h3>contributions</h3>
+			{{#with contributions}}
+			<strong>{{title}}</strong>
+			<p>{{description}}</p>
+			<p>{{year}} ({{field}})</p>
+
+			{{/with}}
+		</section>
+
+		<br>
+
+
+
+	</main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
