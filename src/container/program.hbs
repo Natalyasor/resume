@@ -24,8 +24,33 @@
 				<strong>{{type}}</strong>
 				<br>
 				<strong>{{duration}}</strong>
+				{{#if duration}} (duration ){{/if}}
 				<br>
-				{{#with details.museum}}
+				{{#with details}}
+				{{#with guide}}
+				<strong>{{name}}</strong>
+				<strong>{{language}}</strong>
+				<br>
+				<strong>{{rating}}</strong>
+				{{#if rating}}(rating){{/if}}
+				{{/with}}
+				{{#each performers}}
+				<li>
+					<p>{{name}} ({{type}})</p>
+				</li>
+				{{/each}}
+				<br>
+				<br>
+				{{#with venue}}
+				<strong>{{name}}</strong>
+				{{#with location}}
+				<br>
+				<em>{{address}}</em>
+				<br>
+				<em>{{city}} {{country}}</em>
+				{{/with}}
+				{{/with}}
+				{{#with museum}}
 				<li><strong>{{name}}</strong></li>
 				{{#with location}}
 				<em>{{address}}</em>
@@ -36,9 +61,11 @@
 				{{#each exhibits}}
 				<li><strong>{{name}}</strong></li>
 				<strong>{{artist}}</strong>
+				{{#if artist}}(artist){{/if}}
 				<p>{{description}}</p>
 				{{#if audio_guide}}Audio guide{{/if}}
 				{{/each}}
+				{{/with}}
 				{{/with}}
 				{{/each}}
 				{{/with}}
