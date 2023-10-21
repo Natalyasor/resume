@@ -1,0 +1,83 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+	<main>
+		<section>
+			<ul>
+				<H1>{{category}}</H1>
+				<hr>
+				<br>
+				<h1>{{name}}</h1>
+				<p>{{description}}</p>
+				<strong>{{price}}</strong>
+				<hr>
+				<br>
+				<h3>Processor</h3>
+				{{#with features}}
+				{{#with processor}}
+				<strong>{{brand}}</strong>
+				<br>
+				<strong>{{model}}, {{speed}}</strong>
+				<br>
+				<strong>{{cores}}, {{cache}}</strong>
+				{{/with}}
+				<h3>Memory</h3>
+				{{#with memory}}
+				<strong>{{type}}, {{size}}, {{speed}}</strong>
+				{{/with}}
+				<h3>Storage</h3>
+				{{#with storage}}
+				<strong>{{type}}, {{size}}</strong>
+				{{/with}}
+				<h3>Display</h3>
+				{{#with display}}
+				<strong>{{size}}, {{resolution}}, {{technology}}</strong>
+				<br>
+				<strong>{{ color_space}}, {{brightness}}, {{refresh_rate}}</strong>
+				{{/with}}
+				<h3>Graphics</h3>
+				{{#with graphics}}
+				<strong>{{brand}}, {{model}}, {{memory}}</strong>
+				{{/with}}
+				<h3>Ports</h3>
+				{{#each ports}}
+				<li><strong>{{type}}, {{count}}</strong></li>
+				<br>
+				<h3>Features</h3>
+				{{#each features}}
+				<li><strong>{{this}}</strong></li>
+				{{/each}}
+				{{/each}}
+				<br>
+				<h3>Battery</h3>
+				{{#with battery}}
+				<strong>{{type}}, {{capacity}}, {{life}}</strong>
+				{{/with}}
+				<br>
+				<br>
+				<strong>{{weight}}</strong>
+				<h3>Dimensions</h3>
+				{{#with dimensions}}
+				<strong>{{height}}, {{width}}, {{depth}}</strong>
+				{{/with}}
+				<br>
+				<br>
+				<strong>{{operating_system}}</strong>
+
+				<h3>accessories</h3>
+				{{#each accessories}}
+				<li><strong>{{name}} --{{price}}</strong></li>
+				{{/each}}
+				{{/with}}
+			</ul>
+		</section>
+	</main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
