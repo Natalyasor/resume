@@ -1,0 +1,120 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+	<main>
+		<section>
+			<div class="card">
+				<div class="card-body">
+					<div class="card">
+						<div class="card-body">
+							{{#with heading}}
+							{{#with main}}
+							<h1>{{title}}</h1>
+							<p>{{text}}</p>
+
+							{{#with button_text}}
+							<div><button class="btn btn-primary">Primary</button></div>
+							<br>
+							<div><button class="btn btn-outline-primary">Outline Primary</button></div>
+							{{/with}}
+							{{/with}}
+						</div>
+					</div>
+					<br>
+					<div class="card">
+						<div class="card-body">
+							{{#with second}}
+							<h2>{{title}}</h2>
+							<p>{{text}}</p>
+
+							{{#with button_text}}
+							<div><button class="btn btn-secondary">Secondary</button></div>
+							<br>
+							<div><button class="btn btn-outline-secondary">Secondary</button></div>
+							{{/with}}
+							{{/with}}
+						</div>
+					</div>
+					<br>
+					<div class="card">
+						<div class="card-body">
+							{{#with subblock}}
+							<h3>{{title}}</h3>
+							<p>{{text}}</p>
+							{{#with button_text}}
+							<div><button class="btn btn-dark">Dark</button></div>
+							<br>
+							<div><button class="btn btn-outline-dark">Dark</button></div>
+							{{/with}}
+							{{/with}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			{{/with}}
+			<div class="card">
+				<div class="card-body">
+					{{#with nested_display}}
+					<div class="display-1">{{title}}</div>
+					<br>
+					<div class="card">
+						<div class="card-body">
+							{{#with children_display}}
+							<div class="display-4">{{title}}</div>
+							<p>{{text}}</p>
+							<div><button class="btn btn-outline-warning">Warning</button></div>
+							{{/with}}
+						</div>
+					</div>
+					<br>
+
+					<h6>{{header_text}}</h6>
+					<br>
+					{{#with button}}
+					<button class="btn btn-info">Info</button>
+					{{/with}}
+					{{/with}}
+				</div>
+			</div>
+			<br>
+			<div class="card">
+				<div class="card-body">
+					{{#with paragraph}}
+					<p class="text-uppercase">{{title}}</p>
+					<p>{{text}}</p>
+
+					{{#with button}}
+					<a href="https://google.com" class="btn btn-link">Link</a>
+					{{/with}}
+					<br>
+					<div class="card">
+						<div class="card-body">
+
+							<li><a href="https://github.com/" class="btn btn-link">Link</a></li>
+
+							<li><a href="https://getbootstrap.com/" class="btn btn-link">Link</a></li>
+							{{/with}}
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			Hello word 1
+
+
+
+
+
+
+			{{!--
+			Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+			Адже наш layout/default.hbs має вже структуру HTML
+			--}}
