@@ -4,11 +4,13 @@
 --}}
 
 <main>
-	<div>
-		<a href="https://github.com/" class="btn btn-link">Home</a>
-		<a href="https://www.google.com/" class="btn btn-link">Contacts</a>
-		<a href="https://www.youtube.com/" class="btn btn-link">Help</a>
-		<a href="https://nodejs.org/en/" class="btn btn-primary">Lets stark</a>
+	<div class="nav">
+		<div class="nav-item">
+			<a href="https://github.com/" class="btn btn-link">Home</a>
+			<a href="https://www.google.com/" class="btn btn-link">Contacts</a>
+			<a href="https://www.youtube.com/" class="btn btn-link">Help</a>
+			<a href="https://nodejs.org/en/" class="btn btn-primary">Lets stark</a>
+		</div>
 	</div>
 	<hr>
 	<br>
@@ -161,19 +163,23 @@
 
 	{{#with footer}}
 	<h5>{{title}}</h5>
-	{{#each navigation}}
-	<a href={{link}} class="btn btn-link">{{text}}</a>
-	{{/each}}
-	<br>
-	{{#each socialMedia}}
-	<a href={{link}} class="btn btn-outline-dark">{{name}}</a>
-	{{/each}}
-	<br>
-	{{#each partners}}
-	<a href={{link}} class="btn btn-info">{{name}}</a>
-	{{/each}}
-
-	<br>
+	<div class="nav">
+		<div class="nav-item col-3">
+			{{#each navigation}}
+			<a href={{link}} class="btn nav-link">{{text}}</a>
+			{{/each}}
+		</div>
+		<div class="nav-item col-3">
+			{{#each socialMedia}}
+			<a href={{link}} class="btn btn-outline-dark">{{name}}</a>
+			{{/each}}
+		</div>
+		<div class="nav-item col-3">
+			{{#each partners}}
+			<a href={{link}} class="btn btn-outline-info">{{name}}</a>
+			{{/each}}
+		</div>
+	</div>
 	{{/with}}
 
 
