@@ -12,6 +12,7 @@
 				<a href="{{href}}" class="nav-link">{{text}}</a>
 			</div>
 			{{/each}}
+			<button class="btn btn-link disabled">Disabled</button>
 		</div>
 
 		{{/with}}
@@ -24,12 +25,12 @@
 		{{#each cards}}
 		<div class="card col-3">
 			<div class="card-header">{{title}}
-				<div class="badge text bg-danger">
-					{{#if isTop}} Top {{/if}}
-				</div>
-				<div class="badge text bg-success">
-					{{#if isNew}} New {{/if}}
-				</div>
+				{{#if isTop}}
+				<div class="badge text bg-danger">isTop</div>
+				{{/if}}
+				{{#if isNew}}
+				<div class="badge text bg-success">isNew</div>
+				{{/if}}
 			</div>
 			<p>{{description}}</p>
 
@@ -44,12 +45,12 @@
 	<br>
 	{{#with goodsBlock}}
 	<div class="nav">
-		{{#each tabs}}
 		<div class="nav nav-tabs">
+			{{#each tabs}}
 			{{#if isActive}}{{text}}{{/if}}
 			{{#if isDisabled}}{{text}}{{/if}}
+			{{/each}}
 		</div>
-		{{/each}}
 	</div>
 	<br>
 	<br>
@@ -60,12 +61,12 @@
 			<div class="card-body">
 				<strong>{{title}}</strong>
 				<p>{{description}}</p>
-				<div class="badge text bg-warning">
-					{{#if isHot}}isHot{{/if}}
-				</div>
-				<div class="badge text bg-primary">
-					{{#if isNew}}isNew{{/if}}
-				</div>
+				{{#if isHot}}
+				<div class="badge text bg-warning">isHot</div>
+				{{/if}}
+				{{#if isNew}}
+				<div class="badge text bg-primary">isNew</div>
+				{{/if}}
 			</div>
 		</div>
 		{{/each}}
@@ -80,10 +81,13 @@
 		<div class="card-body">
 			<h2>{{header}}</h2>
 			<p>{{description}}</p>
-
-			{{#each buttons}}
-			<a href="{{link}}" class="btn btn-primary">{{text}}</a>
-			{{/each}}
+			<div class="nav">
+				<div class="nav-item col-3">
+					{{#each buttons}}
+					<a href="{{link}}" class="btn btn-primary">{{text}}</a>
+					{{/each}}
+				</div>
+			</div>
 		</div>
 	</div>
 	{{/with}}
@@ -96,26 +100,28 @@
 		<div class="card-body">
 			<h2 class="text-center">{{title}}</h2>
 			<p class="text-center">{{description}}</p>
-			{{#each buttons}}
-			<a href="https://www.youtube.com/" class="btn btn-primary">{{text}}</a>
-			{{/each}}
+			<div class="nav">
+				<div class="nav-item">
+					{{#each buttons}}
+					<a href="https://www.youtube.com/" class="btn btn-primary">{{text}}</a>
+					{{/each}}
+				</div>
+			</div>
 		</div>
 	</div>
 	{{/with}}
-
-
+	<br>
 	<hr>
 
-	{{#each footer}}
 	<div class="nav">
-		<div class="nav-item">
-			<a href="{{link}}" class="nav-link">{{text}}</a>
+		{{#each footer}}
+		<div class="nav-item col-2">
+			{{#each this}}
+			<a href="{{link}}" class="nav-link {{#if @last}}disabled{{/if}}">{{text}}</a>
+			{{/each}}
 		</div>
+		{{/each}}
 	</div>
-	{{/each}}
-
-
-
 </main>
 
 
