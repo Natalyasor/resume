@@ -3,48 +3,141 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 --}}
 
-<div>
-	<main>
-		{{#with navigation}}
-		<div class="nav">
-			{{#each links}}
+
+<main>
+	<div class="card">
+		<div class="card-body">
+			{{#with navigation}}
 			<div class="nav">
+				{{#each links}}
 				<div class="nav nav-link">
-					<a href="{{href}}">{{text}}</a>
+					<a href="{{href}}" class="nav-link">{{text}}</a>
 				</div>
 				{{/each}}
 			</div>
 			{{/with}}
-			<br>
-			<br>
-	</main>
-</div>
-<main>
+		</div>
+	</div>
+
+	<br>
 	<h1>{{header}}</h1>
 	<br>
-	<br>
-	{{#with contacts_data}}
-	<h2>{{title}}</h2>
-	{{#each buttons}}
-	<button class="btn btn-warning">{{text}}</button>
-	{{/each}}
-	{{/with}}
+	<div>
+		<div class="col-8">
+			{{#with contacts_data}}
+			<h2>{{title}}</h2>
+			<br>
+			{{#each buttons}}
+			{{#if isPrimary}}<button class="btn btn-warning">{{text}}</button>{{/if}}
+			{{#if isOutline}}<button class="btn btn-outline-warning">{{text}}</button>{{/if}}
+			{{/each}}
+			{{#with form}}
+			{{#with input}}
+			<div class="p-2">
+				<div class="row">
+					<div class="col-5">
+						{{#with surname}}
+						<label class="form-label">{{label}}</label>
+						<input class="form-control">
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+
+					<div class="col-5">
+						{{#with name}}
+						<label class="form-label">{{label}}</label>
+						<input class="form-control">
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+
+					<div class="col-5">
+						{{#with phone}}
+						<label class="form-label">{{label}}</label>
+						<input class="form-control">
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+					<div class="col-5">
+						{{#with email}}
+						<label class="form-label">{{label}}</label>
+						<input class="form-control">
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+				</div>
+			</div>
+			{{/with}}
+			<br>
+			<hr>
+			{{#each switch}}
+			<div class="row">
+				<div class="col-8 p-2">
+					<div class="form-check form-switch">
+						<label class="form-check-label">{{text}}</label>
+						<input type="checkbox" class="form-check-input">
+					</div>
+				</div>
+			</div>
+			{{/each}}
+			{{/with}}
+			{{/with}}
+		</div>
 
 
-	{{#with form}}
-	{{#with input}}
-	{{#with surname}}
-	<div class="row">
+		<hr>
+		<div class="card col-4">
+			<div class="card-body">
+				{{#each action_block}}
+				{{#if isSuccess}}<button class="btn btn-success">{{text}}</button>{{/if}}
+				{{#if isDanger}}<button class="btn btn-danger">{{text}}</button>{{/if}}
+				{{#if isInfo}}<button class="btn btn-info">{{text}}</button>{{/if}}
+				{{/each}}
+			</div>
+		</div>
+		<div class="card col-4">
+			<div class="card-body">
+				{{#with total}}
+				<h2>{{title}}</h2>
+				<br>
+				{{#each item_list}}
+				<p>{{name}}: {{price}}</p>
+				{{/each}}
+				<hr>
+				{{#each additional_info}}
+				<p>{{text}}: {{value}}</p>
+				{{/each}}
+				<hr>
+				{{#with total_price}}
+				<p>{{text}}: {{value}}</p>
+				{{/with}}
+				<hr>
+				{{#each button}}
+				{{#if isPrimary}}<button class="btn btn-primary">{{text}}</button>{{/if}}
+				{{#if isOutline}}<button class="btn btn-outline-primary">{{text}}</button>{{/if}}
+				{{/each}}
+				{{/with}}
+			</div>
+		</div>
+		<hr>
+		{{#with delivery}}
+		<h2>{{title}}</h2>
+		<div class="row">
+			<div class="card col-8">
+				{{#each select}}
+				<div class="col-4">
+					<label class="form-label">{{label}}</label>
+				</div>
+				<select class="form-select"></select>
 
-		<label class="form-label">{{label}}</label>
-		<input class="form-control">
-		<div class="form-text"></div>
-
+				{{/each}}
+			</div>
+		</div>
 	</div>
 	{{/with}}
-	{{/with}}
-	{{/with}}
 </main>
+
+
 
 
 
