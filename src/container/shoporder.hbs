@@ -1,0 +1,291 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+<main>
+	<div class="card">
+		<div class="card-body">
+			{{#with navigation}}
+			<div class="nav">
+				{{#each links}}
+				<div class="nav nav-link">
+					<a href="{{href}}" class="nav-link">{{text}}</a>
+				</div>
+				{{/each}}
+			</div>
+			{{/with}}
+		</div>
+	</div>
+
+	<br>
+	<h1>{{header}}</h1>
+	<br>
+
+
+
+	<div class="row">
+		<div class="col-8">
+			{{#with contacts_data}}
+			<h2>{{title}}</h2>
+			<br>
+			{{#each buttons}}
+			{{#if isPrimary}}<button class="btn btn-warning">{{text}}</button>{{/if}}
+			{{#if isOutline}}<button class="btn btn-outline-warning">{{text}}</button>{{/if}}
+			{{/each}}
+			{{#with form}}
+			{{#with input}}
+			<div class="p-2">
+				<div class="row">
+					<div class="col-5">
+						{{#with surname}}
+						<label class="form-label">{{label}}</label>
+						<input placeholder={{placeholder}}>
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+
+					<div class="col-5">
+						{{#with name}}
+						<label class="form-label">{{label}}</label>
+						<input placeholder={{placeholder}}>
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+
+					<div class="col-5">
+						{{#with phone}}
+						<label class="form-label">{{label}}</label>
+						<input placeholder={{placeholder}}>
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+					<div class="col-5">
+						{{#with email}}
+						<label class="form-label">{{label}}</label>
+						<input placeholder={{placeholder}}>
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+				</div>
+			</div>
+			{{/with}}
+			<br>
+			<hr>
+			{{#each switch}}
+			<div class="row">
+				<div class="col-8 p-2">
+					<div class="form-check form-switch">
+						<label class="form-check-label">{{text}}</label>
+						<input type="checkbox" class="form-check-input">
+					</div>
+				</div>
+			</div>
+			{{/each}}
+			{{/with}}
+			{{/with}}
+			<hr>
+
+			{{#with delivery}}
+			<h2>{{title}}</h2>
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						{{#each select}}
+						<div class="col-6">
+							<label class="form-label">{{label}}</label>
+							<select class="form-select">
+								<option selected>{{placeholder}}</option>
+								{{#each options}}
+								<option value="{{value}}">{{text}}</option>
+								{{/each}}
+							</select>
+						</div>
+						{{/each}}
+					</div>
+				</div>
+				<br>
+				{{#each delivery_type}}
+				<div class="form-check">
+					<label class="form-check-label">{{type}}</label>
+					<input type="radio" class="form-check-input">
+				</div>
+				{{/each}}
+				<br>
+				<hr>
+				{{#with payment}}
+				<h2>{{title}}</h2>
+				{{#each list}}
+				<div class="form-check">
+					<label class="form-check-label">{{type}}</label>
+					<input type="radio" class="form-check-input">
+					<p>{{description}}</p>
+				</div>
+				{{/each}}
+				{{/with}}
+				<br>
+				<hr>
+
+				{{#with contact}}
+				<h2>{{title}}</h2>
+				<div class="row">
+					<div class="col-5">
+						{{#with surname}}
+						<label class="form-label">{{label}}</label>
+						<input placeholder={{placeholder}}>
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+					<div class="col-5">
+						{{#with name}}
+						<label class="form-label">{{label}}</label>
+						<input placeholder={{placeholder}}>
+						<div class="form text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+					<div class="col-5">
+						{{#with phone}}
+						<label class="form-label">{{label}}</label>
+						<input placeholder="{{placeholder}}">
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+					<div class="col-5">
+						{{#with email}}
+						<label class="form-label">{{label}}</label>
+						<input placeholder="{{placeholder}}">
+						<div class="form-text text-danger">{{caption}}</div>
+						{{/with}}
+					</div>
+				</div>
+				{{/with}}
+				<br>
+				<hr>
+				{{#with coment}}
+				<label class="form-label">{{label}}</label>
+				<input placeholder="{{placeholder}}">
+				{{/with}}
+				<br>
+				<hr>
+				{{/with}}
+
+				{{#with coupon}}
+				<h2>{{title}}</h2>
+				{{#with select}}
+				{{#with availabel_coupon}}
+				<div class="col-8">
+					<label class="form-label">{{label}}</label>
+					<select class="form-select">
+						<option selected>{{placeholder}}</option>
+						{{#each options}}
+						<option value="{{value}}">{{text}}</option>
+						{{/each}}
+					</select>
+				</div>
+				{{/with}}
+				<br>
+				{{#with friend_coupon}}
+				<div class="col-8">
+					<label class="form-label">{{label}}</label>
+					<select class="form-select">
+						<option selected>{{placeholder}}</option>
+						{{#each options}}
+						<option value="{{value}}">{{text}}</option>
+						{{/each}}
+					</select>
+				</div>
+				{{/with}}
+				{{/with}}
+				<br>
+				{{#with add}}
+				{{#with friend}}
+				<div class="col">
+					<label class="form-label">{{label}}</label>
+					<input placeholder="{{placeholder}}">
+					<div class="form-text text-danger">{{caption}}</div>
+				</div>
+				{{/with}}
+				<br>
+				{{#with colleague}}
+				<div class="col-8">
+					<label class="form-label">{{label}}</label>
+					<input placeholder="{{placeholder}}">
+					<div class="form-text text-danger">{{caption}}</div>
+				</div>
+				{{/with}}
+				{{/with}}
+				{{/with}}
+
+				<hr>
+				{{#with quiz}}
+				<h3>{{title}}</h3>
+				{{#with preference}}
+				<div>{{title}}</div>
+				{{#each options}}
+				<div class="col-8">
+					<div class="form-check">
+						<div class="form-check-label">{{this}}</div>
+						<input type="radio" class="form-check-input">
+					</div>
+				</div>
+				{{/each}}
+				{{/with}}
+				<br>
+				{{#with your_expirience}}
+				<label class="form-label">{{label}}</label>
+				{{/with}}
+				{{#with purchase_frequency}}
+				<div class="col-8">
+					<label class="form-label">{{label}}</label>
+					<select class="form-select">
+						<option selected>{{placeholder}}</option>
+						{{#each options}}
+						<option value="{{value}}">{{text}}</option>
+						{{/each}}
+					</select>
+				</div>
+				{{/with}}
+				<br>
+				{{#with factors}}
+				<div>{{title}}</div>
+				{{#each options}}
+				<div class="col">
+					<div class="form-check">
+						<div class="form-check-label">{{this}}</div>
+						<input type="checkbox" class="form-check-input">
+					</div>
+
+				</div>
+				{{/each}}
+				{{/with}}
+				{{/with}}
+				<hr>
+				<br>
+
+
+				<div class="nav">
+					{{#each footer}}
+					<div class="nav-item-col-2">
+						{{#each this}}
+						<a href="{{link}}" class="nav-link {{#if @last}}disabled{{/if}}">{{text}}</a>
+						{{/each}}
+					</div>
+					{{/each}}
+				</div>
+
+
+
+
+			</div>
+</main>
+
+
+
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
