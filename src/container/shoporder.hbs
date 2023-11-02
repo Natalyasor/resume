@@ -217,22 +217,62 @@
 				{{/with}}
 				{{/with}}
 
-
-				{{#with guiz}}
-				<h2>{{title}}</h2>
+				<hr>
+				{{#with quiz}}
+				<h3>{{title}}</h3>
 				{{#with preference}}
-				<h2>{{title}}</h2>
+				<div>{{title}}</div>
 				{{#each options}}
-				<div class="form-check">
-					<div class="form-check-label">{{this}}</div>
-					<input type="radio" class="form-check-input">
+				<div class="col-8">
+					<div class="form-check">
+						<div class="form-check-label">{{this}}</div>
+						<input type="radio" class="form-check-input">
+					</div>
+				</div>
+				{{/each}}
+				{{/with}}
+				<br>
+				{{#with your_expirience}}
+				<label class="form-label">{{label}}</label>
+				{{/with}}
+				{{#with purchase_frequency}}
+				<div class="col-8">
+					<label class="form-label">{{label}}</label>
+					<select class="form-select">
+						<option selected>{{placeholder}}</option>
+						{{#each options}}
+						<option value="{{value}}">{{text}}</option>
+						{{/each}}
+					</select>
+				</div>
+				{{/with}}
+				<br>
+				{{#with factors}}
+				<div>{{title}}</div>
+				{{#each options}}
+				<div class="col">
+					<div class="form-check">
+						<div class="form-check-label">{{this}}</div>
+						<input type="checkbox" class="form-check-input">
+					</div>
+
 				</div>
 				{{/each}}
 				{{/with}}
 				{{/with}}
 				<hr>
+				<br>
 
 
+				<div class="nav">
+					{{#each footer}}
+					<div class="nav-item-col-2">
+						{{#each this}}
+						<a href="{{link}}" class="nav-link {{#if @last}}disabled{{/if}}">{{text}}</a>
+						{{/each}}
+					</div>
+					{{/each}}
+				</div>
 
 
 
