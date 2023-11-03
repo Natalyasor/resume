@@ -1,0 +1,176 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<main>
+	<div class="card">
+		<div class="card-body">
+			{{#with navigation}}
+			<div class="nav">
+				{{#each links}}
+				<div class="nav-item">
+					<a href="{{href}}" class="btn btn-link">{{text}}</a>
+				</div>
+				{{/each}}
+				<button class="btn btn-link disabled">disabled</button>
+			</div>
+			{{/with}}
+		</div>
+	</div>
+</main>
+
+<main>
+	<div class="row">
+		<div class="col">
+			<h2>{{header}}</h2>
+
+			{{#with purchase}}
+			<div class="nav nav-tabs mb-3">
+				{{#each tabs}}
+				<div class="nav-item">
+					<a href="#" class="nav-link" {{#if @first}}active{{/if}}>{{this}}</a>
+				</div>
+				{{/each}}
+			</div>
+
+			<div class="row">
+				{{#with actionBlock}}
+				<div class="card col-3">
+					{{#with input}}
+					<div class="row">
+						<input placeholder="{{placeholder}}">
+					</div>
+					{{/with}}
+				</div>
+				{{#each buttons}}
+				<div class="col">
+					{{#if isSuccess}}<a hreF="{{link}}" class="btn btn-success">{{text}}</a>{{/if}}
+					{{#if isOutline}}<a hreF="{{link}}" class="btn btn-outline-success">{{text}}</a>{{/if}}
+					{{#if isDanger}}<a hreF="{{link}}" class="btn btn-outline-danger">{{text}}</a>{{/if}}
+				</div>
+				{{/each}}
+			</div>
+			{{/with}}
+			<br>
+			<hr>
+
+			{{>purchaseltem}}
+
+			{{/with}}
+		</div>
+	</div>
+
+	<br>
+	<hr>
+	{{#with userInfo}}
+	<h2>{{title}}</h2>
+	<br>
+	{{#with profileData}}
+	<h3>{{title}}</h3>
+	{{#with fullName}}
+	<div class="card">
+		<div class="row">
+
+			<div class="col-4">
+				{{#with surname}}
+				<div>{{title}}<br>{{value}}</div>
+				{{/with}}
+			</div>
+
+			<div class="col-4">
+				{{#with name}}
+				<div>{{title}}<br>{{value}}</div>
+				{{/with}}
+			</div>
+
+			<div class="col-4">
+				{{#with middleName}}
+				<div>{{title}}<br>{{value}}</div>
+				{{/with}}
+			</div>
+		</div>
+	</div>
+	{{/with}}
+	<br>
+	{{#with otherInfo}}
+	<div class="card">
+		<div class="row">
+
+			<div class="col-4">
+				{{#with birthday}}
+				<div>{{title}}<br>{{value}}</div>
+				{{/with}}
+			</div>
+
+			<div class="col-4">
+				{{#with sex}}
+				<div>{{title}}<br>{{value}}</div>
+				{{/with}}
+			</div>
+
+			<div class="col-4">
+				{{#with language}}
+				<div>{{title}}<br>{{value}}</div>
+				{{/with}}
+			</div>
+		</div>
+	</div>
+	{{/with}}
+	{{/with}}
+	<br>
+
+	<div class="card">
+		<div class="row">
+			{{#each buttons}}
+			<div class="col-4">
+				{{#if isPrimary}}<button href="{{link}}" class="btn btn-primary">{{text}}</button>{{/if}}
+				{{#if isSecondary}}<button href="{{link}}" class="btn btn-secondary">{{text}}</button>{{/if}}
+				{{#if isDanger}}<button href="{{link}}" class="btn btn-danger">{{text}}</button>{{/if}}
+			</div>
+			{{/each}}
+		</div>
+	</div>
+
+	<br>
+
+	<div class="card">
+		<div class="card-body">
+			<div class="row">
+				{{#with recipients}}
+				<h2>{{title}}</h2>
+
+				<div class="card col-4">
+					{{#each users}}
+					<p>{{name}}<br>{{phone}}</p>
+					{{#with button}}
+					<button href="{{link}}" class="btn btn-primary">{{text}}</button>
+					{{/with}}
+					{{/each}}
+				</div>
+
+				{{/with}}
+			</div>
+		</div>
+	</div>
+
+	<br>
+
+	{{/with}}
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
