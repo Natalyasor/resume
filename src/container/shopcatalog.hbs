@@ -1,0 +1,196 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<main>
+	<div class="row">
+		<div class="col-8">
+			<div class="card">
+				<div class="card-body">
+					{{#with navigation}}
+					<div class="nav">
+						{{#each links}}
+						<div class="nav-item">
+							<a href="{{link}}" class="btn btn-link">{{text}}</a>
+						</div>
+						{{/each}}
+						<button class="btn btn-disabled">Disabled</button>
+					</div>
+					{{/with}}
+				</div>
+			</div>
+			<br>
+			<br>
+			<div class="row">
+				<div class="col">
+					{{#each breadcrumb}}
+					<div class="nav">
+						<a href="{{url}}">/{{name}}</a>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<br>
+			<br>
+
+			<h2>{{header}}</h2>
+			<div class="row">
+				{{#each sortBlock}}
+				<div class="col-4">
+					<div class="form-label">
+						<select class="form-select">
+							<option selected>{{placeholder}}</option>
+							{{#each options}}
+							<option value="{{value}}">{{text}}</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+			<br>
+			<div class="row">
+				<div class="card">
+					<div class="card-body">
+						{{#with filterBlock}}
+						<div class="col-3">
+							{{#with sellers}}
+							<p>{{title}}</p>
+							{{#each list}}
+							<div class="form-check">
+								<label class="form-check-label">{{value}}</label>
+								<input type="checkbox" class="form-check-input">
+							</div>
+							{{/each}}
+							{{/with}}
+						</div>
+						<hr>
+						{{#with brands}}
+						<p>{{title}}</p>
+						{{#with input}}
+						<input placeholder="{{placeholder}}">
+						{{/with}}
+
+						{{#each options}}
+						<div class="form-check">
+							<label class="form-check-label">{{value}}</label>
+							<input type="checkbox" class="form-check-input">
+						</div>
+						{{/each}}
+						<hr>
+						{{/with}}
+
+						{{#with price}}
+						<p>{{title}}</p>
+
+						{{#with range}}
+						<div class="card col-6 m-2">
+							<div class="form-label">
+								<p>{{from}}</p>
+							</div>
+						</div>
+
+						<div class="card col-6 m-2">
+							<div class="form-label">
+								<p>{{to}}</p>
+							</div>
+						</div>
+						{{/with}}
+
+						{{#with button}}
+						<button href="{{link}}" class="btn btn-outline-secondary">{{text}}</button>
+						{{/with}}
+						{{/with}}
+						<br>
+						<hr>
+						{{#each filterList}}
+						<p>{{title}}</p>
+						{{#each options}}
+						<div class="form-check">
+							<label class="form-check-label">{{value}}</label>
+							<input type="checkbox" class="form-check-input">
+						</div>
+						{{/each}}
+						{{/each}}
+						{{/with}}
+					</div>
+				</div>
+
+				<div class="row">
+
+					<div class="card">
+						<div class="card-body">
+							{{#each goodsList}}
+							<div class="col-4">
+								<img src="{{img}}">
+							</div>
+							<div class="text-warning">{{#if isHot}}isHot{{/if}}</div>
+							<div class="text-primary">{{#if isNew}}isNew{{/if}}</div>
+							<div class="text-warning">{{#if isFast}}isFast{{/if}}</div>
+							<div class="text-primary">{{#if isFree}}isFree{{/if}}</div>
+							<strong>{{name}}</strong>
+							{{#with review}}
+							<p>{{amount}}{{text}}</p>
+							{{/with}}
+							<strong>{{price}}</strong>
+							<p>{{delivery}}</p>
+							{{#each buttons}}
+							{{#if isPrimary}}<button class="btn btn-primary">{{text}}</button>{{/if}}
+							<br>
+							{{#if isSecondary}}<button class="btn btn-secondary">{{text}}</button>{{/if}}
+							{{/each}}
+							<ul>
+								{{#each characteristics}}
+								<li>{{title}}:{{value}}</li>
+								{{/each}}
+							</ul>
+							{{/each}}
+
+						</div>
+					</div>
+				</div>
+
+
+				<div class="card text bg-success">
+					<div class="card-body">
+						{{#with service}}
+						<h2 class="text-center">{{title}}</h2>
+						<p class="text-center">{{description}}</p>
+						{{#each buttons}}
+						<div class="text-center"><button href="{{link}}" class="btn btn-primary">{{text}}</button>
+							<div>
+								{{/each}}
+								{{/with}}
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<div class="nav">
+							{{#each footer}}
+							<div class="nav-item col-2">
+								{{#each this}}
+								<a href="{{link}}" class="nav-link {{#if @last}}disabled{{/if}}">{{text}}</a>
+								{{/each}}
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+
+
+</main>
+
+
+
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
