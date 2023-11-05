@@ -3,7 +3,7 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 --}}
 
-<div class="row">
+<div class="row ps-2">
 
 	<div class="col">
 		<div class="card">
@@ -29,6 +29,8 @@
 
 			<div class="col-8">
 				{{#with formBlock}}
+				<br>
+				<br>
 				<h2>{{header}}</h2>
 
 				{{#with rating}}
@@ -61,8 +63,9 @@
 				<hr>
 
 				{{#with feedbackBlock}}
+				<br>
 				<h2>{{title}}</h2>
-
+				<br>
 				{{#each buttons}}
 				{{#if isWarning}}<button href="{{link}}" class="btn btn-warning">{{text}}</button>{{/if}}
 				{{#if isSuccess}}<button href="{{link}}" class="btn btn-success">{{text}}</button>{{/if}}
@@ -73,12 +76,12 @@
 
 				<br>
 				<hr>
-
+				<br>
 				<div class="card">
 					<div class="card-body">
 						{{#each reviewList}}
 						{{#with title}}
-						<p class="text-header">{{userName}}<br>{{caption}}<br>{{date}}</p>
+						<p class="card-header">{{userName}}<br>{{caption}}<br>{{date}}</p>
 						{{/with}}
 
 						{{#with reviewBody}}
@@ -89,15 +92,59 @@
 						{{#with rating}}
 						<p>{{title}}:{{value}}</p>
 						{{/with}}
-						{{/with}}
-						{{#each text}}
 
+
+						<ul>
+							{{#each text}}
+							<li>{{this}}</li>
+							{{/each}}
+						</ul>
+						{{#with advantages}}
+						<strong>{{title}}</strong>
+						<p>{{text}}</p>
+						{{/with}}
+						{{#with disadvantages}}
+						<strong>{{title}}</strong>
+						<p>{{text}}</p>
+						{{/with}}
+						{{#each images}}
+						<img src="{{this}}">
 						{{/each}}
+
+						{{>reviewltem}}
+
+						{{/with}}
+
 						{{/each}}
 					</div>
 				</div>
+				<div class="card">
+					<div class="card-body text bg-success">
+						{{#with service}}
+						<h2 class="text-center">{{title}}</h2>
+						<p class="text-center">{{description}}</p>
+						{{#each buttons}}
+						<div class="text-center"><button class="btn btn-primary">{{text}}</button></div>
+						{{/each}}
+						{{/with}}
+					</div>
+				</div>
 
-
+				<br>
+				<hr>
+				<div class="row">
+					<div class="col">
+						<div class="nav">
+							{{#each footer}}
+							<div class="nav-item col-2">
+								{{#each this}}
+								<a href="{{link}}" class="nav-link {{#if @last}}disabled{{/if}}">{{text}}</a>
+								{{/each}}
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
 
 			</div>
 		</div>
