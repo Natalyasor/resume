@@ -1,0 +1,157 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div class="row ps-2">
+
+	<div class="col">
+		<div class="card">
+			<div class="card-body">
+				{{#with navigation}}
+				<div class="nav">
+					{{#each links}}
+					<div class="nav-item">
+						<a href="{{href}}" class="btn btn-link">{{text}}</a>
+					</div>
+					{{/each}}
+					<button class="btn btn-link disabled">disabled</button>
+				</div>
+				{{/with}}
+			</div>
+		</div>
+	</div>
+
+
+	<main>
+		<div class="row">
+
+
+			<div class="col-8">
+				{{#with formBlock}}
+				<br>
+				<br>
+				<h2>{{header}}</h2>
+
+				{{#with rating}}
+				<p>{{title}}:{{value}}</p>
+				{{/with}}
+
+				{{#with actionBlock}}
+				<div class="nav nav-tabs mb-3">
+					{{#each tabs}}
+					<div class="nav-item">
+						<a href="#" class="nav-item" {{#if @first}}active{{/if}}>{{text}}</a>
+					</div>
+					{{/each}}
+				</div>
+				<hr>
+				<br>
+
+				<div class="card">
+					<div class="card-body">
+						{{#with report}}
+						<p>{{title}}</p>
+						{{#with button}}
+						<button href="{{link}}" class="btn btn-dark">{{text}}</button>
+						{{/with}}
+						{{/with}}
+					</div>
+				</div>
+				{{/with}}
+				<br>
+				<hr>
+
+				{{#with feedbackBlock}}
+				<br>
+				<h2>{{title}}</h2>
+				<br>
+				{{#each buttons}}
+				{{#if isWarning}}<button href="{{link}}" class="btn btn-warning">{{text}}</button>{{/if}}
+				{{#if isSuccess}}<button href="{{link}}" class="btn btn-success">{{text}}</button>{{/if}}
+				{{#if isDanger}}<button href="{{link}}" class="btn btn-danger">{{text}}</button>{{/if}}
+				{{/each}}
+				{{/with}}
+				{{/with}}
+
+				<br>
+				<hr>
+				<br>
+				<div class="card">
+					<div class="card-body">
+						{{#each reviewList}}
+						{{#with title}}
+						<p class="card-header">{{userName}}<br>{{caption}}<br>{{date}}</p>
+						{{/with}}
+
+						{{#with reviewBody}}
+						{{#with seller}}
+						<p>{{title}}:{{value}}</p>
+						{{/with}}
+
+						{{#with rating}}
+						<p>{{title}}:{{value}}</p>
+						{{/with}}
+
+
+						<ul>
+							{{#each text}}
+							<li>{{this}}</li>
+							{{/each}}
+						</ul>
+						{{#with advantages}}
+						<strong>{{title}}</strong>
+						<p>{{text}}</p>
+						{{/with}}
+						{{#with disadvantages}}
+						<strong>{{title}}</strong>
+						<p>{{text}}</p>
+						{{/with}}
+						{{#each images}}
+						<img src="{{this}}">
+						{{/each}}
+
+						{{>reviewltem}}
+
+						{{/with}}
+
+						{{/each}}
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-body text bg-success">
+						{{#with service}}
+						<h2 class="text-center">{{title}}</h2>
+						<p class="text-center">{{description}}</p>
+						{{#each buttons}}
+						<div class="text-center"><button class="btn btn-primary">{{text}}</button></div>
+						{{/each}}
+						{{/with}}
+					</div>
+				</div>
+
+				<br>
+				<hr>
+				<div class="row">
+					<div class="col">
+						<div class="nav">
+							{{#each footer}}
+							<div class="nav-item col-2">
+								{{#each this}}
+								<a href="{{link}}" class="nav-link {{#if @last}}disabled{{/if}}">{{text}}</a>
+								{{/each}}
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
