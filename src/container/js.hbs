@@ -1,0 +1,77 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+	<main>
+		<section>
+			<ul>
+				<h1 class="text-primary">{{name}}</h1>
+				<p>{{description}}</p>
+				{{#with history}}
+				<strong>{{founder}} ({{year}})</strong>
+				{{/with}}
+				<hr>
+
+				<br>
+				<h3 class="text-primary">Types</h3>
+				{{#each types}}
+				<li>{{this}}</li>
+				{{/each}}
+				<br>
+				<h3 class="text-primary">Syntax</h3>
+				{{#with syntax}}
+				{{#each variables}}
+				<li>{{this}}</li>
+				{{/each}}
+				<br>
+				<h3 class="text-primary">Functions</h3>
+				{{#each functions}}
+				<li>{{this}}</li>
+				{{/each}}
+				<br>
+				<h3 class="text-primary">Conditionals</h3>
+				{{#each conditionals}}
+				<li>{{this}}</li>
+				{{/each}}
+				<br>
+				<h3 class="text-primary">Loops</h3>
+				{{#each loops}}
+				<li>{{this}}</li>
+				{{/each}}
+				<br>
+				<h3 class="text-primary">Classes</h3>
+				{{#each classes}}
+				<li>{{this}}</li>
+				{{/each}}
+				{{/with}}
+				<br>
+				<h3 class="text-primary">Features</h3>
+				{{#each features}}
+				<li>{{this}}</li>
+				{{/each}}
+				<br>
+				<h3 class="text-primary">Libraries</h3>
+				{{#each libraries}}
+				<li>{{this}}</li>
+				{{/each}}
+				<br>
+				<h3 class="text-primary">Tools</h3>
+				{{#each tools}}
+				<li>{{this}}</li>
+				{{/each}}
+				<br>
+				<h3 class="text-primary">Community</h3>
+				{{#each community}}
+				<li>{{name}} ({{type}})</li>
+				{{/each}}
+			</ul>
+		</section>
+	</main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
