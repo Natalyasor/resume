@@ -7,56 +7,59 @@
 	<main>
 		<section>
 			<ul>
-				<h3>WEB</h3>
-				{{#with web}}
-				{{#each languages}}
-				<li><strong>{{name}}</strong></li>
-				<strong>{{version}}</strong>
-				{{#if version}} (version ){{/if}}
-				<br>
-				<p>{{description}}</p>
+				<div class="card m-5">
+					<div class="card-body">
+						<h3 class="card-header text-primary">WEB</h3>
+						{{#with web}}
+						{{#each languages}}
+						<li><strong class="text-primary">{{name}}</strong></li>
+						<strong class="text-primary">{{version}}</strong>
+						{{#if version}} (version ){{/if}}
+						<br>
+						<p>{{description}}</p>
 
-				{{#each elements}}
-				<strong>{{name}}</strong>
-				<br>
-				<p>{{description}}</p>
+						{{#each elements}}
+						<strong>{{name}}</strong>
+						<br>
+						<p>{{description}}</p>
 
-				{{#each attributes}}
-				<strong>{{name}}</strong>
-				<p>{{description}}</p>
-				{{/each}}
-				{{/each}}
+						{{#each attributes}}
+						<strong>{{name}}</strong>
+						<p>{{description}}</p>
+						{{/each}}
+						{{/each}}
 
-				{{#each properties}}
-				<li><strong>{{name}}</strong></li>
-				<p>{{description}}</p>
-				<br>
+						{{#each properties}}
+						<li><strong>{{name}}</strong></li>
+						<p>{{description}}</p>
+						<br>
 
-				{{#each values}}
-				<li><strong>{{value}}</strong></li>
-				<br>
-				<p>{{description}}</p>
-				{{/each}}
-				{{/each}}
+						{{#each values}}
+						<li><strong>{{value}}</strong></li>
+						<br>
+						<p>{{description}}</p>
+						{{/each}}
+						{{/each}}
 
-				{{#each functions}}
-				<li><strong>{{name}}</strong></li>
-				<br>
-				<p>{{description}}</p>
+						{{#each functions}}
+						<li><strong>{{name}}</strong></li>
+						<br>
+						<p>{{description}}</p>
 
-				{{#each parameters}}
-				<li><strong>{{name}} ({{type}})</strong></li>
-				<p>{{description}}</p>
-				{{/each}}
-				{{/each}}
-				{{/each}}
+						{{#each parameters}}
+						<li><strong>{{name}} ({{type}})</strong></li>
+						<p>{{description}}</p>
+						{{/each}}
+						{{/each}}
+						{{/each}}
 
-				<br>
-				{{/with}}
-
+						<br>
+						{{/with}}
 			</ul>
-		</section>
-	</main>
+</div>
+</div>
+</section>
+</main>
 </div>
 
 {{!--

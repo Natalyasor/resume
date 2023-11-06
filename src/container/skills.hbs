@@ -6,22 +6,31 @@
 <div>
     <main>
         <section>
-            <h2>{{>title data="My Skills"}}</h2>
-            <ul>
-                {{#each main.skills}}
-                <li>{{this}}</li>
-                {{/each}}
-            </ul>
+            <div class="card col-6">
+                <div class="card-body">
+                    <h2 class="card-header">{{>title data="My Skills"}}</h2>
+
+                    <ul>
+                        {{#each main.skills}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
         </section>
         <section>
-            <h3>{{>title data="My Hobbies"}}</h3>
-            <ul>
-                {{#each main.Hobbies}}
-                <li>
-                    {{name}} ({{isMain}})
-                    {{#if isMain includeZero=true}} (favourite) {{/if}}
-                </li>
-                {{/each}}
+            <div class="card col-6">
+                <div class="card-body">
+                    <h3 class="card-header">{{>title data="My Hobbies"}}</h3>
+                    <ul>
+                        {{#each main.Hobbies}}
+                        <li>
+                            {{name}} ({{isMain}})
+                            {{#if isMain includeZero=true}} (favourite) {{/if}}
+                        </li>
+                        {{/each}}
+                </div>
+            </div>
             </ul>
         </section>
     </main>

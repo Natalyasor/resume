@@ -51,6 +51,7 @@ router.get('/summary', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('summary', {
     // ↙ сюди вводимо JSON дані
+
     page: {
       title: 'Resume / summary',
     },
@@ -129,6 +130,7 @@ router.get('/education', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('education', {
     // ↙ сюди вводимо JSON дані
+
     page: {
       title: 'Resume / education',
     },
@@ -2957,6 +2959,79 @@ router.get('/shopreview', function (req, res) {
 })
 
 // ================================================================
+
+//              ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/index8', function (req, res) {
+  //             ↙ cюди вводимо назву файлу з сontainer
+  res.render('index8', {
+    // ↙ сюди вводимо JSON дані
+
+    layout: 'index',
+    name: {
+      title: 'Natalya Sorokolit/ Resume',
+    },
+    person: {
+      name: 'Sorokolit Natalya',
+      text: 'My resume',
+    },
+
+    Inform: {
+      description: 'My projects in IT Brains ',
+    },
+    buttons: [
+      {
+        text: 'work',
+        link: 'http://localhost:3000/work',
+      },
+      {
+        text: 'web',
+        link: 'http://localhost:3000/web',
+      },
+      {
+        text: 'shopreview',
+        link: 'http://localhost:3000/shopreview',
+      },
+      {
+        text: 'shopprofile',
+        link: 'http://localhost:3000/shopprofile',
+      },
+      {
+        text: 'shoporder',
+        link: 'http://localhost:3000/shoporder',
+      },
+      {
+        text: 'shopcart',
+        link: 'http://localhost:3000/shopcart',
+      },
+      {
+        text: 'task31',
+        link: 'http://localhost:3000/task31',
+      },
+      {
+        text: 'task22',
+        link: 'http://localhost:3000/task22',
+      },
+      {
+        text: 'task21',
+        link: 'http://localhost:3000/task21',
+      },
+      {
+        text: 'facebook',
+        link: 'http://localhost:3000/facebook',
+      },
+      {
+        text: 'mac',
+        link: 'http://localhost:3000/mac',
+      },
+      {
+        text: 'car',
+        link: 'http://localhost:3000/car',
+      },
+    ],
+  })
+})
+
+//=====================================================
 
 // Підключаємо роутер до бек-енду
 module.exports = router

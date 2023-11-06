@@ -7,47 +7,50 @@
 	<main>
 		<section>
 			<ul>
-
-				<h1>{{name}}</h1>
-				<h3>Users</h3>
-				<hr>
-				{{#each users}}
-				<li><strong>{{id}}</strong></li>
-				<strong>{{name}}, {{age}}, {{gender}}</strong>
-				<br>
-				<br>
-				<h3>Friends</h3>
-				{{#each friends}}
-				<li><strong>{{id}}</strong></li>
-				<strong>{{name}}, {{age}}, {{gender}}</strong>
-				<br>
-				<br>
-				<h3>mutual_friends</h3>
-				{{#each mutual_friends}}
-				<li><strong>{{id}}</strong></li>
-				<strong>{{name}}, {{age}}, {{gender}}</strong>
-				<br>
-				<br>
-				{{/each}}
-				<br>
-				<br>
-				<h3>Groups</h3>
-				{{#each groups}}
-				<li><strong>{{id}}{{name}}</strong></li>
-				<p>{{description}}</p>
-				<br>
-				<h3>Members</h3>
-				{{#each members}}
-				<li><strong>{{id}}</strong></li>
-				<strong>{{name}}, {{age}}, {{gender}}</strong>
-				{{/each}}
-				{{/each}}
-				{{/each}}
-				{{/each}}
+				<div class="card">
+					<div class="card-body">
+						<h1 class="card-header text-primary">{{name}}</h1>
+						<h3 class="text-warning">Users</h3>
+						<hr>
+						{{#each users}}
+						<li><strong>{{id}}</strong></li>
+						<strong>{{name}}, {{age}}, {{gender}}</strong>
+						<br>
+						<br>
+						<h3>Friends</h3>
+						{{#each friends}}
+						<li><strong>{{id}}</strong></li>
+						<strong>{{name}}, {{age}}, {{gender}}</strong>
+						<br>
+						<br>
+						<h3>mutual_friends</h3>
+						{{#each mutual_friends}}
+						<li><strong>{{id}}</strong></li>
+						<strong>{{name}}, {{age}}, {{gender}}</strong>
+						<br>
+						<br>
+						{{/each}}
+						<br>
+						<br>
+						<h3>Groups</h3>
+						{{#each groups}}
+						<li><strong>{{id}}{{name}}</strong></li>
+						<p>{{description}}</p>
+						<br>
+						<h3>Members</h3>
+						{{#each members}}
+						<li><strong>{{id}}</strong></li>
+						<strong>{{name}}, {{age}}, {{gender}}</strong>
+						{{/each}}
+						{{/each}}
+						{{/each}}
+						{{/each}}
 
 			</ul>
-		</section>
-	</main>
+</div>
+</div>
+</section>
+</main>
 </div>
 
 {{!--
